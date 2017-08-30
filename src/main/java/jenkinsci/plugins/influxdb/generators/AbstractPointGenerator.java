@@ -22,9 +22,8 @@ public abstract class AbstractPointGenerator implements PointGenerator {
         final String renderedProjectName = projectNameRenderer.render(build);
         return Point
                 .measurement(name)
-                .addField(PROJECT_NAME, renderedProjectName)
-                .addField(BUILD_NUMBER, build.getNumber())
-                .tag(PROJECT_NAME, renderedProjectName);
+                .tag(PROJECT_NAME, renderedProjectName)
+                .addField(BUILD_NUMBER, build.getNumber());
     }
 
     protected String measurementName(String measurement) {

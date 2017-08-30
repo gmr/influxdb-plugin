@@ -61,8 +61,8 @@ public class JenkinsBasePointGenerator extends AbstractPointGenerator {
         Point.Builder point = buildPoint(measurementName("jenkins_data"), customPrefix, build);
 
         point.addField(BUILD_TIME, build.getDuration() == 0 ? dt : build.getDuration())
-            .addField(BUILD_STATUS_MESSAGE, build.getBuildStatusSummary().message)
-            .addField(BUILD_RESULT, result)
+            .tag(BUILD_STATUS_MESSAGE, build.getBuildStatusSummary().message)
+            .tag(BUILD_RESULT, result)
             .addField(BUILD_RESULT_ORDINAL, ordinal)
             .addField(BUILD_IS_SUCCESSFUL, ordinal < 2 ? true : false)
             .addField(PROJECT_BUILD_HEALTH, build.getParent().getBuildHealth().getScore())
